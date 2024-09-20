@@ -1,6 +1,6 @@
 _target_: lerobot.common.robot_devices.robots.manipulator.ManipulatorRobot
 robot_type: koch
-calibration_dir: .cache/calibration/koch_bimanual
+calibration_dir: .cache/calibration/koch
 
 # `max_relative_target` limits the magnitude of the relative positional target vector for safety purposes.
 # Set this to a positive scalar to have the same value for all motors, or a list that is the same length as
@@ -8,20 +8,9 @@ calibration_dir: .cache/calibration/koch_bimanual
 max_relative_target: null
 
 leader_arms:
-  left:
+  main:
     _target_: lerobot.common.robot_devices.motors.dynamixel.DynamixelMotorsBus
-    port: /dev/tty.usbmodem585A0085511
-    motors:
-      # name: (index, model)
-      shoulder_pan: [1, "xl330-m077"]
-      shoulder_lift: [2, "xl330-m077"]
-      elbow_flex: [3, "xl330-m077"]
-      wrist_flex: [4, "xl330-m077"]
-      wrist_roll: [5, "xl330-m077"]
-      gripper: [6, "xl330-m077"]
-  right:
-    _target_: lerobot.common.robot_devices.motors.dynamixel.DynamixelMotorsBus
-    port: /dev/tty.usbmodem575E0031751
+    port: COM6
     motors:
       # name: (index, model)
       shoulder_pan: [1, "xl330-m077"]
@@ -32,20 +21,9 @@ leader_arms:
       gripper: [6, "xl330-m077"]
 
 follower_arms:
-  left:
+  main:
     _target_: lerobot.common.robot_devices.motors.dynamixel.DynamixelMotorsBus
-    port: /dev/tty.usbmodem585A0076891
-    motors:
-      # name: (index, model)
-      shoulder_pan: [1, "xl430-w250"]
-      shoulder_lift: [2, "xl430-w250"]
-      elbow_flex: [3, "xl330-m288"]
-      wrist_flex: [4, "xl330-m288"]
-      wrist_roll: [5, "xl330-m288"]
-      gripper: [6, "xl330-m288"]
-  right:
-    _target_: lerobot.common.robot_devices.motors.dynamixel.DynamixelMotorsBus
-    port: /dev/tty.usbmodem575E0032081
+    port: COM5
     motors:
       # name: (index, model)
       shoulder_pan: [1, "xl430-w250"]
@@ -56,15 +34,9 @@ follower_arms:
       gripper: [6, "xl330-m288"]
 
 cameras:
-  laptop:
-    _target_: lerobot.common.robot_devices.cameras.opencv.OpenCVCamera
-    camera_index: 0
-    fps: 30
-    width: 640
-    height: 480
-  phone:
-    _target_: lerobot.common.robot_devices.cameras.opencv.OpenCVCamera
-    camera_index: 1
+  rear:
+    _target_: lerobot.common.robot_devices.cameras.intelrealsense.IntelRealSenseCamera
+    camera_index: 134322072219
     fps: 30
     width: 640
     height: 480

@@ -121,6 +121,7 @@ def push_dataset_card_to_hub(
 ):
     """Creates and pushes a LeRobotDataset Card with appropriate tags to easily find it on the hub."""
     card = create_lerobot_dataset_card(tags=tags, text=text)
+    print("push_dataset_card_to_hub: ", repo_id, revision)
     card.push_to_hub(repo_id=repo_id, repo_type="dataset", revision=revision)
 
 
