@@ -364,6 +364,7 @@ class ManipulatorRobot:
         for name in self.follower_arms:
             print(f"Connecting {name} follower arm.")
             self.follower_arms[name].connect()
+        for name in self.leader_arms:
             print(f"Connecting {name} leader arm.")
             self.leader_arms[name].connect()
 
@@ -680,6 +681,10 @@ class ManipulatorRobot:
             self.follower_arms[name].write("Goal_Position", goal_pos)
 
         return torch.cat(action_sent)
+
+    def print_logs(self):
+        pass
+        # TODO(aliberts): move robot-specific logs logic here
 
     def disconnect(self):
         if not self.is_connected:
