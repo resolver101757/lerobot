@@ -14,6 +14,8 @@ git clone https://github.com/your-username/original-repo.git
 
 `git remote add upstream https://github.com/huggingface/lerobot.git`
 
+# start from here if already forked and cloned 
+
 ## Create a Branch for Your Changes:
 
 `git checkout -b my-changes`
